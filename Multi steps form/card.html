@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending News</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Trending News</h2>
+        <div id="news-container"></div>
+    </div>
+
+    <script>
+        const newsData = [
+            { title: "AI Revolution in 2025", description: "AI is changing the world with rapid advancements." },
+            { title: "SpaceX's Mars Mission", description: "Elon Musk reveals new plans for Mars colonization." },
+            { title: "Blockchain & Web3 Future", description: "The rise of decentralized applications and finance." }
+        ];
+
+        const newsContainer = document.getElementById("news-container");
+
+        function loadNews() {
+            newsData.forEach(news => {
+                const newsCard = document.createElement("div");
+                newsCard.classList.add("card");
+                newsCard.innerHTML = `<div class='title'>${news.title}</div><p>${news.description}</p>`;
+                newsContainer.appendChild(newsCard);
+            });
+        }
+        
+        loadNews();
+    </script>
+</body>
+</html>
